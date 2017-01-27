@@ -40,14 +40,10 @@ for id in rtk:
 # define input (change this to the values you want)
 
 input = u"""
-理髪店
-蝶番い
-度合い
-大至急
-気忙しい
-啜る
-芒洋
-辻褄
+生き様
+参考になる
+前のめり
+鵜呑み
 """
 
 expressions = input.split()
@@ -57,7 +53,7 @@ output = ""
 for expression in expressions:
   output += expression
   output += ";"
-  output += ";" #meaning is blank... for now...
+  output += ";" # meaning is blank
   for character in expression:
     if rtk_dict.get(character):
       output += character + ": " + rtk_dict.get(character) + "<br>" # use <br> instead of newline because the newline delimits each entry instead

@@ -19,7 +19,7 @@ for id in rtk:
   keyword = note.__getitem__(u'Keyword')
   rtkDict[kanji] = keyword
 
-exp = u"惣菜"
+exp = u"剥き出し"
 
 output = ""
 

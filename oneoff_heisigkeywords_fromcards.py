@@ -12,6 +12,8 @@
 # key is kanji, value is keyword, e.g.
 # { 理: logic }
 
+TAG_TO_FIND = "tag:add_keywords"
+
 rtk = mw.col.findCards("tag:rtk1")
 rtk3 = mw.col.findCards("tag:rtk3")
 
@@ -27,7 +29,7 @@ for id in rtk:
   rtk_dict[kanji] = keyword
 
 # find cards by desired tag
-card_ids = mw.col.findCards("tag:vmd_rtk3")
+card_ids = mw.col.findCards(TAG_TO_FIND)
 
 # loop through card ids and set Heisig keywords field directly.
 for id in card_ids:
