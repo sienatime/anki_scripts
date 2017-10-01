@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+
+# source env/bin/activate
+# python getreadings.py
+# deactivate
+
 import requests
 
 input = u"""
