@@ -14,7 +14,7 @@
 # Hit Cmd Enter to run script
 # Save output to a text file
 # Import text file into Anki via File -> Import (be sure to allow HTML in fields)
-# Double-check output (especially mecab-generated readings), add definitions if desired, add tag `vmd`
+# Double-check output (especially mecab-generated readings), add definitions if desired
 
 import codecs
 from japanese.reading import mecab
