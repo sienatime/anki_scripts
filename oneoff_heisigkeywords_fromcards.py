@@ -2,17 +2,18 @@
 
 # note that you can't define functions in the Anki REPL (ugh) so that's why this is just one long script
 
+# Tag cards with "add_keywords"
 # Open Anki REPL from Anki home screen with Cmd Shift : (colon)
 # Paste script
-# Change value of input
 # Hit Cmd Enter to run script
 # Double-check output
+# Tag "add_keywords" will be removed programmatically
 
 # construct RTK dictionary, used for looking up Heisig keywords
 # key is kanji, value is keyword, e.g.
 # { 理: logic }
 
-TAG_TO_FIND = "tag:add_keywords"
+TAG_TO_FIND = "add_keywords"
 
 rtk = mw.col.findCards("tag:rtk1")
 rtk3 = mw.col.findCards("tag:rtk3")
@@ -29,7 +30,7 @@ for id in rtk:
   rtk_dict[kanji] = keyword
 
 # find cards by desired tag
-card_ids = mw.col.findCards(TAG_TO_FIND)
+card_ids = mw.col.findCards("tag:" + TAG_TO_FIND)
 
 # loop through card ids and set Heisig keywords field directly.
 for id in card_ids:
@@ -43,4 +44,8 @@ for id in card_ids:
       heisig_keywords += character + ": " + rtk_dict.get(character) + "<br>" # use <br> instead of newline because the newline delimits each entry instead
 
   note[u'Heisig keywords'] = heisig_keywords
+  note.delTag(TAG_TO_FIND)
   note.flush()
+
+num_cards = len(card_ids)
+print(f"Modified {num_cards} card{'' if num_cards == 1 else 's'}")
