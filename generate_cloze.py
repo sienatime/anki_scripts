@@ -23,6 +23,8 @@ def go(input_name, output_name):
     clozed = ""
     for i in range(len(expression)):
       # {{c1::自}}{{c2::信}}{{c3::満}}{{c4::々}}
+      # TODO: the same character should get assigned the same cloze number, e.g.
+      # {{c1::至}}{{c2::公}}{{c2::至}}{{c3::平}}
       char = expression[i]
       clozed += "{{c" + str(i + 1) + "::" + char + "}}"
 

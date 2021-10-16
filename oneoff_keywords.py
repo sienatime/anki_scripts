@@ -5,8 +5,8 @@
 # Change value of exp
 # Hit Cmd Enter to run script
 
-rtk = mw.col.findCards("tag:rtk1")
-rtk3 = mw.col.findCards("tag:rtk3")
+rtk = mw.col.find_cards("tag:rtk1")
+rtk3 = mw.col.find_cards("tag:rtk3")
 
 rtk.extend(rtk3)
 

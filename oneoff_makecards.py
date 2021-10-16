@@ -24,8 +24,8 @@ japanese = __import__("3918629684")
 # key is kanji, value is keyword, e.g.
 # { 理: logic }
 
-rtk = mw.col.findCards("tag:rtk1")
-rtk3 = mw.col.findCards("tag:rtk3")
+rtk = mw.col.find_cards("tag:rtk1")
+rtk3 = mw.col.find_cards("tag:rtk3")
 
 rtk.extend(rtk3)
 

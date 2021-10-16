@@ -15,8 +15,8 @@
 
 TAG_TO_FIND = "add_keywords"
 
-rtk = mw.col.findCards("tag:rtk1")
-rtk3 = mw.col.findCards("tag:rtk3")
+rtk = mw.col.find_cards("tag:rtk1")
+rtk3 = mw.col.find_cards("tag:rtk3")
 
 rtk.extend(rtk3)
 
@@ -30,7 +30,7 @@ for id in rtk:
   rtk_dict[kanji] = keyword
 
 # find cards by desired tag
-card_ids = mw.col.findCards("tag:" + TAG_TO_FIND)
+card_ids = mw.col.find_cards("tag:" + TAG_TO_FIND)
 
 # loop through card ids and set Heisig keywords field directly.
 for id in card_ids:
@@ -44,7 +44,7 @@ for id in card_ids:
       heisig_keywords += character + ": " + rtk_dict.get(character) + "<br>" # use <br> instead of newline because the newline delimits each entry instead
 
   note[u'Heisig keywords'] = heisig_keywords
-  note.delTag(TAG_TO_FIND)
+  note.remove_tag(TAG_TO_FIND)
   note.flush()
 
 num_cards = len(card_ids)
