@@ -23,7 +23,7 @@ rtk.extend(rtk3)
 rtk_dict = {}
 
 for id in rtk:
-  card = mw.col.getCard(id)
+  card = mw.col.get_card(id)
   note = card.note()
   kanji = note.__getitem__(u'Expression')
   keyword = note.__getitem__(u'Keyword')
@@ -35,7 +35,7 @@ card_ids = mw.col.find_cards("tag:" + TAG_TO_FIND)
 # loop through card ids and set Heisig keywords field directly.
 for id in card_ids:
   heisig_keywords = ""
-  card = mw.col.getCard(id)
+  card = mw.col.get_card(id)
   note = card.note()
   expression = note.__getitem__(u'Expression')
 
@@ -45,7 +45,7 @@ for id in card_ids:
 
   note[u'Heisig keywords'] = heisig_keywords
   note.remove_tag(TAG_TO_FIND)
-  note.flush()
+  mw.col.update_note(note)
 
 num_cards = len(card_ids)
 print(f"Modified {num_cards} card{'' if num_cards == 1 else 's'}")
